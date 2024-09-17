@@ -35,7 +35,7 @@ export default function App() {
     event.preventDefault();
 
     if (newTask.current.value == "") {
-      alert("silahkan  + item.idmasukan data!");
+      alert("silahkan masukan data!");
       return false;
     }
 
@@ -55,6 +55,8 @@ export default function App() {
     // container data baru :
     let updateTask = [];
 
+    console.log(id);
+
     tasks.map((item, index) => {
       // jika data ditemukan maka atur ulang datanya :
       if (item.id == id) {
@@ -70,8 +72,26 @@ export default function App() {
     const currentData = tasks[currentIndex];
     const updateData = tasks[updateIndex];
 
-    tasks[currentIndex] = { ...currentData, id: updateData.id };
-    tasks[updateIndex] = { ...updateData, id: currentData.id };
+    console.log("ini current data yang completed ");
+    console.log(currentData.completed);
+
+    console.log("ini data yg di update yang false");
+    console.log(updateData.completed);
+
+    tasks[currentIndex] = {
+      ...currentData,
+      id: updateData.id,
+    };
+
+    tasks[updateIndex] = {
+      ...updateData,
+      id: currentData.id,
+    };
+
+    console.log("ini hasil current data");
+    console.log(tasks[currentIndex]);
+    console.log("ini update data");
+    console.log(tasks[updateIndex]);
 
     const newData = [...tasks];
 

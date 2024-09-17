@@ -5,12 +5,6 @@ export default function ListButton(props) {
   let prevIndex = currentIndex - 1;
   let nextIndex = currentIndex + 1;
 
-  if (props.tasks[nextIndex]) {
-  }
-  console.log(
-    `index sekarang : ${currentIndex} | panjang index : ${props.tasks.length}`
-  );
-
   let btnPrev = false;
 
   // jika task sebelumnya ada : tampilkan

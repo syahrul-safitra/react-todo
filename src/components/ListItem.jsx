@@ -26,15 +26,27 @@ export default function ListItem(props) {
     <div className="join mt-5 flex justify-center">
       <div>
         {props.tasks.map((item) => {
+          console.log(item);
           return (
             <div className="flex flex-row" key={item.id}>
               <div>
                 <div>
-                  <input
-                    type="checkbox"
-                    onClick={() => props.setCompleted(item.id)}
-                    className="input input-bordered checkbox join-item"
-                  />
+                  {!item.completed || (
+                    <input
+                      type="checkbox"
+                      checked
+                      onChange={() => props.setCompleted(item.id)}
+                      className="input input-bordered checkbox join-item"
+                    />
+                  )}
+
+                  {item.completed || (
+                    <input
+                      type="checkbox"
+                      onClick={() => props.setCompleted(item.id)}
+                      className="input input-bordered checkbox join-item"
+                    />
+                  )}
                 </div>
               </div>
               <input
